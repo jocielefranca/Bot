@@ -1,0 +1,418 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DVX Performance Report 2024-2025</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #002818 0%, #004428 100%);
+            color: white;
+            overflow-x: hidden;
+        }
+        
+        .presentation-container {
+            width: 100vw;
+            height: 100vh;
+            position: relative;
+        }
+        
+        .slide {
+            width: 100%;
+            height: 100vh;
+            display: none;
+            padding: 60px;
+            position: relative;
+            background: linear-gradient(135deg, #002818 0%, #004428 100%);
+            animation: slideIn 0.8s ease-in-out;
+        }
+        
+        .slide.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        
+        @keyframes slideIn {
+            from { opacity: 0; transform: translateX(50px); }
+            to { opacity: 1; transform: translateX(0); }
+        }
+        
+        .slide h1 {
+            font-size: 4rem;
+            font-weight: 700;
+            margin-bottom: 2rem;
+            background: linear-gradient(45deg, #ffffff, #a0f0a0);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+            text-shadow: 0 4px 20px rgba(255,255,255,0.3);
+        }
+        
+        .slide h2 {
+            font-size: 2.5rem;
+            margin-bottom: 2rem;
+            color: #ffffff;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+        
+        .slide h3 {
+            font-size: 1.8rem;
+            margin-bottom: 1.5rem;
+            color: #a0f0a0;
+        }
+        
+        .slide p {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+            opacity: 0.9;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 2rem 0;
+        }
+        
+        .metric-card {
+            background: rgba(255,255,255,0.1);
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2);
+            border-radius: 20px;
+            padding: 2rem;
+            text-align: center;
+            transition: all 0.3s ease;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.3);
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0,0,0,0.4);
+        }
+        
+        .metric-number {
+            font-size: 3rem;
+            font-weight: 700;
+            color: #a0f0a0;
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+        
+        .metric-label {
+            font-size: 1.1rem;
+            opacity: 0.8;
+        }
+        
+        .growth-indicator {
+            font-size: 1.5rem;
+            color: #4ade80;
+            margin-top: 0.5rem;
+        }
+        
+        .navigation {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            display: flex;
+            gap: 10px;
+            z-index: 100;
+        }
+        
+        .nav-btn {
+            background: rgba(255,255,255,0.2);
+            border: none;
+            color: white;
+            padding: 15px 25px;
+            border-radius: 50px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            font-size: 1rem;
+            backdrop-filter: blur(10px);
+        }
+        
+        .nav-btn:hover {
+            background: rgba(255,255,255,0.3);
+            transform: scale(1.05);
+        }
+        
+        .slide-counter {
+            position: fixed;
+            bottom: 30px;
+            left: 30px;
+            background: rgba(255,255,255,0.2);
+            padding: 10px 20px;
+            border-radius: 25px;
+            backdrop-filter: blur(10px);
+            font-size: 0.9rem;
+        }
+        
+        .chart-container {
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            margin: 2rem 0;
+            flex-wrap: wrap;
+        }
+        
+        .chart-item {
+            text-align: center;
+            margin: 1rem;
+        }
+        
+        .chart-bar {
+            width: 80px;
+            background: linear-gradient(to top, #002818, #a0f0a0);
+            border-radius: 10px;
+            margin: 0 auto 10px;
+            position: relative;
+            box-shadow: 0 4px 15px rgba(160,240,160,0.3);
+        }
+        
+        .highlight-box {
+            background: linear-gradient(135deg, rgba(160,240,160,0.2), rgba(255,255,255,0.1));
+            border: 2px solid #a0f0a0;
+            border-radius: 15px;
+            padding: 2rem;
+            margin: 2rem 0;
+            backdrop-filter: blur(10px);
+        }
+        
+        .logo {
+            position: absolute;
+            top: 30px;
+            left: 30px;
+            font-size: 1.5rem;
+            font-weight: 700;
+            color: #a0f0a0;
+        }
+        
+        .conclusion-points {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 1.5rem;
+            margin: 2rem 0;
+        }
+        
+        .point-card {
+            background: rgba(160,240,160,0.1);
+            border-left: 4px solid #a0f0a0;
+            padding: 1.5rem;
+            border-radius: 10px;
+            transition: all 0.3s ease;
+        }
+        
+        .point-card:hover {
+            background: rgba(160,240,160,0.2);
+            transform: translateX(10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="presentation-container">
+        <div class="logo">DVX | DIAGONAL VICTA</div>
+        <div class="slide-counter">
+            <span id="current-slide">1</span> / <span id="total-slides">5</span>
+        </div>
+        
+        <!-- Slide 1: Título -->
+        <div class="slide active">
+            <h1>Performance Report</h1>
+            <h2>2024-2025</h2>
+            <p style="font-size: 1.5rem; margin-top: 3rem;">Análise Estratégica de Crescimento e Qualidade</p>
+            <p style="font-size: 1.2rem; opacity: 0.7; margin-top: 2rem;">Diagonal | Victa - Período: Janeiro 2024 a Maio 2025</p>
+        </div>
+        
+        <!-- Slide 2: Overview Executivo -->
+        <div class="slide">
+            <h2>Overview Executivo</h2>
+            <div class="highlight-box">
+                <h3>Principais Resultados</h3>
+                <div class="metrics-grid">
+                    <div class="metric-card">
+                        <span class="metric-number">+53%</span>
+                        <span class="metric-label">Crescimento Mensal</span>
+                        <div class="growth-indicator">↗️ 1.037 → 1.585 conversas/mês</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number">9,62</span>
+                        <span class="metric-label">Nota Média Geral 2025</span>
+                        <div class="growth-indicator">↗️ +0,07 vs 2024</div>
+                    </div>
+                    <div class="metric-card">
+                        <span class="metric-number">+0,73%</span>
+                        <span class="metric-label">Melhoria na Qualidade</span>
+                        <div class="growth-indicator">🎯 Crescimento com Excelência</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 3: Volume de Conversas -->
+        <div class="slide">
+            <h2>Crescimento de Volume</h2>
+            <div class="chart-container">
+                <div class="chart-item">
+                    <div class="chart-bar" style="height: 120px;"></div>
+                    <strong>2024</strong><br>
+                    1.037 conversas/mês
+                </div>
+                <div style="font-size: 3rem; color: #a0f0a0;">→</div>
+                <div class="chart-item">
+                    <div class="chart-bar" style="height: 190px;"></div>
+                    <strong>2025</strong><br>
+                    1.585 conversas/mês
+                </div>
+            </div>
+            
+            <div class="metrics-grid" style="margin-top: 3rem;">
+                <div class="metric-card">
+                    <span class="metric-number">+92%</span>
+                    <span class="metric-label">Diagonal</span>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">1.479 → 2.844 (projetado)</p>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">+47%</span>
+                    <span class="metric-label">Victa</span>
+                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">10.975 → 16.176 (projetado)</p>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Slide 4: Qualidade do Atendimento -->
+        <div class="slide">
+            <h2>Evolução da Qualidade</h2>
+            
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <h3 style="color: #a0f0a0; margin-bottom: 1rem;">Victa</h3>
+                    <span class="metric-number">9,46 → 9,58</span>
+                    <span class="metric-label">+0,12 pontos</span>
+                    <p style="font-size: 0.9rem; margin-top: 1rem;">Maior estabilidade e consistência nas avaliações</p>
+                </div>
+                <div class="metric-card">
+                    <h3 style="color: #a0f0a0; margin-bottom: 1rem;">Diagonal</h3>
+                    <span class="metric-number">9,64 → 9,65</span>
+                    <span class="metric-label">+0,01 pontos</span>
+                    <p style="font-size: 0.9rem; margin-top: 1rem;">Manutenção do alto padrão de qualidade</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 2rem;">
+                <h3>Média Geral Consolidada</h3>
+                <p style="font-size: 1.5rem; text-align: center;"><strong>9,55 (2024) → 9,62 (2025)</strong></p>
+                <p style="text-align: center; margin-top: 1rem;">Crescimento de volume com melhoria simultânea da qualidade</p>
+            </div>
+        </div>
+        
+        <!-- Slide 5: Conclusões e Próximos Passos -->
+        <div class="slide">
+            <h2>Conclusões Estratégicas</h2>
+            
+            <div class="conclusion-points">
+                <div class="point-card">
+                    <h3>🚀 Crescimento Acelerado</h3>
+                    <p>Aumento de 53% no volume mensal demonstra forte expansão do negócio</p>
+                </div>
+                
+                <div class="point-card">
+                    <h3>⭐ Qualidade Mantida</h3>
+                    <p>Melhoria nas notas mesmo com crescimento de volume indica maturidade operacional</p>
+                </div>
+                
+                <div class="point-card">
+                    <h3>🎯 Diagonal em Destaque</h3>
+                    <p>92% de crescimento projetado - maior oportunidade de expansão</p>
+                </div>
+                
+                <div class="point-card">
+                    <h3>📊 Padronização Eficaz</h3>
+                    <p>Notas consistentemente altas (>9,4) em ambas as empresas</p>
+                </div>
+            </div>
+            
+            <div class="highlight-box" style="margin-top: 2rem;">
+                <h3>Ações</h3>
+                <p>• Investir em capacidade tecnológica no bot para suportar crescimento contínuo</p>
+                <p>• Replicar boas práticas da Victa na Diagonal</p>
+                <p>• Equilibrar distribuição de carga entre operadores</p>
+                <p>• Manter foco na qualidade durante expansão</p>
+            </div>
+        </div>
+        
+        <div class="navigation">
+            <button class="nav-btn" onclick="previousSlide()">← Anterior</button>
+            <button class="nav-btn" onclick="nextSlide()">Próximo →</button>
+        </div>
+    </div>
+    
+    <script>
+        let currentSlide = 0;
+        const slides = document.querySelectorAll('.slide');
+        const totalSlides = slides.length;
+        
+        document.getElementById('total-slides').textContent = totalSlides;
+        
+        function showSlide(n) {
+            slides[currentSlide].classList.remove('active');
+            currentSlide = (n + totalSlides) % totalSlides;
+            slides[currentSlide].classList.add('active');
+            document.getElementById('current-slide').textContent = currentSlide + 1;
+        }
+        
+        function nextSlide() {
+            showSlide(currentSlide + 1);
+        }
+        
+        function previousSlide() {
+            showSlide(currentSlide - 1);
+        }
+        
+        // Navegação por teclado
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'ArrowRight' || e.key === ' ') {
+                nextSlide();
+            } else if (e.key === 'ArrowLeft') {
+                previousSlide();
+            }
+        });
+        
+        // Auto-animação dos números
+        function animateNumbers() {
+            const numbers = document.querySelectorAll('.metric-number');
+            numbers.forEach(num => {
+                const finalValue = num.textContent;
+                if (finalValue.includes('%') || finalValue.includes('+')) {
+                    num.style.transform = 'scale(1.1)';
+                    setTimeout(() => {
+                        num.style.transform = 'scale(1)';
+                    }, 300);
+                }
+            });
+        }
+        
+        // Executar animação quando slide muda
+        const observer = new MutationObserver(function(mutations) {
+            mutations.forEach(function(mutation) {
+                if (mutation.attributeName === 'class') {
+                    if (mutation.target.classList.contains('active')) {
+                        setTimeout(animateNumbers, 300);
+                    }
+                }
+            });
+        });
+        
+        slides.forEach(slide => {
+            observer.observe(slide, { attributes: true });
+        });
+    </script>
+</body>
+</html>

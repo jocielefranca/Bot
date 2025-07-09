@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>DVX Performance Whatsapp Report 2024-2025</title>
+    <title>DVX Performance Whatsapp Report 2025</title>
     <style>
         * {
             margin: 0;
@@ -13,7 +13,7 @@
         
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #002818 0%, #004428 100%);
+            background: linear-gradient(135deg, #1a3a2b 0%, #1f493b 100%);
             color: white;
             overflow-x: hidden;
         }
@@ -30,7 +30,7 @@
             display: none;
             padding: 60px;
             position: relative;
-            background: linear-gradient(135deg, #002818 0%, #004428 100%);
+            background: linear-gradient(135deg, #1a3a2b 0%, #1f493b 100%);
             animation: slideIn 0.8s ease-in-out;
         }
         
@@ -49,7 +49,7 @@
             font-size: 4rem;
             font-weight: 700;
             margin-bottom: 2rem;
-            background: linear-gradient(45deg, #ffffff, #a0f0a0);
+            background: linear-gradient(45deg, #ffffff, #c8e6d0);
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
             background-clip: text;
@@ -66,7 +66,7 @@
         .slide h3 {
             font-size: 1.8rem;
             margin-bottom: 1.5rem;
-            color: #a0f0a0;
+            color: #c8e6d0;
         }
         
         .slide p {
@@ -102,7 +102,7 @@
         .metric-number {
             font-size: 3rem;
             font-weight: 700;
-            color: #a0f0a0;
+            color: #c8e6d0;
             display: block;
             margin-bottom: 0.5rem;
         }
@@ -114,8 +114,42 @@
         
         .growth-indicator {
             font-size: 1.5rem;
-            color: #4ade80;
+            color: #7bcfa6;
             margin-top: 0.5rem;
+        }
+        
+        .projection-container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin: 2rem 0;
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 15px;
+            border-left: 5px solid #c8e6d0;
+        }
+        
+        .projection-item {
+            text-align: center;
+            flex: 1;
+        }
+        
+        .projection-growth {
+            font-size: 2.5rem;
+            font-weight: bold;
+            color: #c8e6d0;
+            margin-bottom: 1rem;
+        }
+        
+        .projection-arrow {
+            font-size: 2rem;
+            color: #c8e6d0;
+            margin: 0 1rem;
+        }
+        
+        .projection-numbers {
+            font-size: 1.2rem;
+            line-height: 1.6;
         }
         
         .navigation {
@@ -170,16 +204,16 @@
         
         .chart-bar {
             width: 80px;
-            background: linear-gradient(to top, #002818, #a0f0a0);
+            background: linear-gradient(to top, #1a3a2b, #c8e6d0);
             border-radius: 10px;
             margin: 0 auto 10px;
             position: relative;
-            box-shadow: 0 4px 15px rgba(160,240,160,0.3);
+            box-shadow: 0 4px 15px rgba(200,230,208,0.3);
         }
         
         .highlight-box {
-            background: linear-gradient(135deg, rgba(160,240,160,0.2), rgba(255,255,255,0.1));
-            border: 2px solid #a0f0a0;
+            background: linear-gradient(135deg, rgba(200,230,208,0.2), rgba(255,255,255,0.1));
+            border: 2px solid #c8e6d0;
             border-radius: 15px;
             padding: 2rem;
             margin: 2rem 0;
@@ -192,7 +226,7 @@
             left: 30px;
             font-size: 1.5rem;
             font-weight: 700;
-            color: #a0f0a0;
+            color: #c8e6d0;
         }
         
         .conclusion-points {
@@ -203,148 +237,131 @@
         }
         
         .point-card {
-            background: rgba(160,240,160,0.1);
-            border-left: 4px solid #a0f0a0;
+            background: rgba(200,230,208,0.1);
+            border-left: 4px solid #c8e6d0;
             padding: 1.5rem;
             border-radius: 10px;
             transition: all 0.3s ease;
         }
         
         .point-card:hover {
-            background: rgba(160,240,160,0.2);
+            background: rgba(200,230,208,0.2);
             transform: translateX(10px);
         }
     </style>
 </head>
 <body>
-            <div class="presentation-container">
+    <div class="presentation-container">
         <div class="logo">DIAGONAL | VICTA</div>
         <div class="slide-counter">
-            <span id="current-slide">1</span> / <span id="total-slides">5</span>
+            <span id="current-slide">1</span> / <span id="total-slides">4</span>
         </div>
         
         <!-- Slide 1: Título -->
         <div class="slide active">
             <h1>Performance Whatsapp Report</h1>
-            <h2>2024-2025</h2>
+            <h2>Junho 2025</h2>
             <p style="font-size: 1.5rem; margin-top: 3rem;">Análise Estratégica de Crescimento e Qualidade</p>
-            <p style="font-size: 1.2rem; opacity: 0.7; margin-top: 2rem;">Diagonal | Victa - Período: Janeiro 2024 a Maio 2025</p>
-        </div>
-        
-        <!-- Slide 2: Overview Executivo -->
-        <div class="slide">
-            <h2>Overview Executivo</h2>
-            <div class="highlight-box">
-                <h3>Principais Resultados</h3>
-                <div class="metrics-grid">
-                    <div class="metric-card">
-                        <span class="metric-number">+53%</span>
-                        <span class="metric-label">Crescimento Mensal</span>
-                        <div class="growth-indicator">↗️ 1.037 → 1.585 conversas/mês</div>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-number">9,62</span>
-                        <span class="metric-label">Nota Média Geral 2025</span>
-                        <div class="growth-indicator">↗️ +0,07 vs 2024</div>
-                    </div>
-                    <div class="metric-card">
-                        <span class="metric-number">+0,73%</span>
-                        <span class="metric-label">Melhoria na Qualidade</span>
-                        <div class="growth-indicator">🎯 Crescimento com Excelência</div>
-                    </div>
+            <div class="metrics-grid" style="margin-top: 3rem;">
+                <div class="metric-card">
+                    <span class="metric-number">10.003</span>
+                    <span class="metric-label">Total de Conversas</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">9,85</span>
+                    <span class="metric-label">Nota Média Victa</span>
+                </div>
+                <div class="metric-card">
+                    <span class="metric-number">9,49</span>
+                    <span class="metric-label">Nota Média Diagonal</span>
                 </div>
             </div>
         </div>
         
-        <!-- Slide 3: Volume de Conversas -->
+        <!-- Slide 2: Volume de Conversas -->
         <div class="slide">
-            <h2>Crescimento de Volume</h2>
-            <div class="chart-container">
-                <div class="chart-item">
-                    <strong style="font-size: 1.2rem;">1.037</strong><br>
-                    <div class="chart-bar" style="height: 120px;"></div>
-                    <strong>2024</strong>
+            <h2>Distribuição de Conversas</h2>
+            <div class="metrics-grid">
+                <div class="metric-card">
+                    <span class="metric-number">1.473</span>
+                    <span class="metric-label">Conversas Diagonal</span>
+                    <div class="growth-indicator">14,7% do total</div>
                 </div>
-                <div style="font-size: 3rem; color: #a0f0a0;">→</div>
-                <div class="chart-item">
-                    <strong style="font-size: 1.2rem;">1.585</strong><br>
-                    <div class="chart-bar" style="height: 190px;"></div>
-                    <strong>2025</strong>
+                <div class="metric-card">
+                    <span class="metric-number">8.560</span>
+                    <span class="metric-label">Conversas Victa</span>
+                    <div class="growth-indicator">85,6% do total</div>
                 </div>
             </div>
             
-            <div class="metrics-grid" style="margin-top: 3rem;">
-                <div class="metric-card">
-                    <span class="metric-number">+92%</span>
-                    <span class="metric-label">Diagonal</span>
-                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">1.479 → 2.844 (projetado)</p>
+            <div class="projection-container">
+                <div class="projection-item">
+                    <div class="projection-growth">+92%</div>
+                    <div class="projection-numbers">1.479 → 2.844 (projetado)</div>
+                    <div class="metric-label">Diagonal 2025</div>
                 </div>
-                <div class="metric-card">
-                    <span class="metric-number">+47%</span>
-                    <span class="metric-label">Victa</span>
-                    <p style="font-size: 0.9rem; margin-top: 0.5rem;">10.975 → 16.176 (projetado)</p>
+                <div class="projection-arrow">→</div>
+                <div class="projection-item">
+                    <div class="projection-growth">+47%</div>
+                    <div class="projection-numbers">10.975 → 16.176 (projetado)</div>
+                    <div class="metric-label">Victa 2025</div>
                 </div>
             </div>
         </div>
         
-        <!-- Slide 4: Qualidade do Atendimento -->
+        <!-- Slide 3: Qualidade do Atendimento -->
         <div class="slide">
-            <h2>Evolução da Qualidade</h2>
+            <h2>Desempenho por Empresa</h2>
             
             <div class="metrics-grid">
                 <div class="metric-card">
-                    <h3 style="color: #a0f0a0; margin-bottom: 1rem;">Victa</h3>
-                    <span class="metric-number">9,46 → 9,58</span>
-                    <span class="metric-label">+0,12 pontos</span>
-                    <p style="font-size: 0.9rem; margin-top: 1rem;">Maior estabilidade e consistência nas avaliações</p>
+                    <h3 style="color: #c8e6d0; margin-bottom: 1rem;">Victa</h3>
+                    <span class="metric-number">9,85</span>
+                    <span class="metric-label">Nota Média</span>
+                    <p style="font-size: 0.9rem; margin-top: 1rem;">Excelência mantida com alto volume</p>
                 </div>
                 <div class="metric-card">
-                    <h3 style="color: #a0f0a0; margin-bottom: 1rem;">Diagonal</h3>
-                    <span class="metric-number">9,64 → 9,65</span>
-                    <span class="metric-label">+0,01 pontos</span>
-                    <p style="font-size: 0.9rem; margin-top: 1rem;">Manutenção do alto padrão de qualidade</p>
+                    <h3 style="color: #c8e6d0; margin-bottom: 1rem;">Diagonal</h3>
+                    <span class="metric-number">9,49</span>
+                    <span class="metric-label">Nota Média</span>
+                    <p style="font-size: 0.9rem; margin-top: 1rem;">Bom desempenho com crescimento</p>
                 </div>
             </div>
             
             <div class="highlight-box" style="margin-top: 2rem;">
-                <h3>Média Geral Consolidada</h3>
-                <p style="font-size: 1.5rem; text-align: center;"><strong>9,55 (2024) → 9,62 (2025)</strong></p>
-                <p style="text-align: center; margin-top: 1rem;">Crescimento de volume com melhoria simultânea da qualidade</p>
+                <h3>Destaque do Mês</h3>
+                <p>• Victa atingiu a maior nota histórica (9,85)</p>
+                <p>• Diagonal manteve padrão acima de 9,4 com aumento de volume</p>
+                <p>• Excelente equilíbrio entre crescimento e qualidade</p>
             </div>
         </div>
         
-        <!-- Slide 5: Conclusões e Próximos Passos -->
+        <!-- Slide 4: Conclusões e Próximos Passos -->
         <div class="slide">
             <h2>Conclusões Estratégicas</h2>
             
             <div class="conclusion-points">
                 <div class="point-card">
-                    <h3>🚀 Crescimento Acelerado</h3>
-                    <p>Aumento de 53% no volume mensal demonstra forte expansão do negócio com escala do canal</p>
+                    <h3>🚀 Crescimento Consolidado</h3>
+                    <p>10.003 conversas em junho demonstram maturidade do canal</p>
                 </div>
                 
                 <div class="point-card">
-                    <h3>⭐ Qualidade Mantida</h3>
-                    <p>Melhoria nas notas mesmo com crescimento de volume indica maturidade operacional</p>
+                    <h3>⭐ Excelência Victa</h3>
+                    <p>Nota 9,85 com 85,6% do volume mostra operação altamente eficiente</p>
                 </div>
                 
                 <div class="point-card">
-                    <h3>🎯 Diagonal em Destaque</h3>
-                    <p>92% de crescimento projetado - maior oportunidade de expansão</p>
-                </div>
-                
-                <div class="point-card">
-                    <h3>📊 Padronização Eficaz</h3>
-                    <p>Notas consistentemente altas (>9,4) em ambas as empresas</p>
+                    <h3>📈 Oportunidade Diagonal</h3>
+                    <p>Projeção de +92% com qualidade mantida</p>
                 </div>
             </div>
             
             <div class="highlight-box" style="margin-top: 2rem;">
-                <h3>Ações</h3>
-                <p>• Investir em capacidade tecnológica no bot para suportar crescimento contínuo</p>
-                <p>• Replicar boas práticas da Victa na Diagonal</p>
-                <p>• Equilibrar distribuição de carga entre operadores</p>
-                <p>• Manter foco na qualidade durante expansão</p>
+                <h3>Recomendações</h3>
+                <p>• Manter padrões de qualidade Victa na Diagonal</p>
+                <p>• Investir em automação para suportar crescimento projetado</p>
+                <p>• Acompanhar métricas de qualidade com aumento de volume</p>
             </div>
         </div>
         
@@ -387,7 +404,7 @@
         
         // Auto-animação dos números
         function animateNumbers() {
-            const numbers = document.querySelectorAll('.metric-number');
+            const numbers = document.querySelectorAll('.metric-number, .projection-growth');
             numbers.forEach(num => {
                 const finalValue = num.textContent;
                 if (finalValue.includes('%') || finalValue.includes('+')) {
